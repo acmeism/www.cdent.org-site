@@ -17,6 +17,7 @@ TODO = \
       specification/ruby \
       specification/javascript \
       documentation \
+      documentation/roadmap \
       documentation/overview \
       documentation/faq \
       examples \
@@ -40,7 +41,7 @@ $(CSS): $(TEMPLATE)/style.css Makefile config.yaml
 $(ALL_TARGETS): $(ALL_DIRS) $(TEMPLATE)/* config.yaml Makefile
 	tt-render --path=$(TEMPLATE) --data=config.yaml $(@:$(TARGET)/%/index.html=%.html) > $@
 
-%.html: %.st
+template/%.html: content/%.st
 	bin/render $< > $@
 
 $(ALL_DIRS):
