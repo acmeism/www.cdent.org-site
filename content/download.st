@@ -1,4 +1,8 @@
 ^ Download C'Dent
 
-C'Dent hasn't quite made it to its first release yet. Currently, the only way to get C'Dent is to check out the source code.
+You can get the latest release of C'Dent from
+"PyPi"<http://pypi.python.org/pypi/cdent/>.
+
+Just install it like a normal Python module. It will install the `cdent`
+compiler for you.
 

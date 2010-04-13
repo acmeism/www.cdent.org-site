@@ -70,7 +70,7 @@ html, body {
 
 .content {
     width: 700px;
-    height: 100%;
+    min-height: 100%;
     float: left;
     padding: 15px;
     background-color: #fff;
@@ -82,7 +82,11 @@ html, body {
 }
 
 .content p, h1, h2, h3 {
-    margin: 5px;
+    margin: 15px 5px;
+}
+
+.content pre {
+    margin-left: 20px;
 }
 
 .center {

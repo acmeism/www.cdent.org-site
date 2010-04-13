@@ -1,13 +1,7 @@
 TARGET = site
 TEMPLATE = template
 
-ALL = \
-      home \
-      download \
-      download/distributions \
-      download/source-repository \
-      download/installation \
-      news \
+ALL := $(shell find content/ -type f | grep -v '\.sw' | perl -pe 's!^\w+/(.*)\.st$$!$$1!' | sort)
 
 TODO = \
       download/installation \
@@ -38,7 +32,7 @@ all: $(ALL_TARGETS) $(CSS)
 $(CSS): $(TEMPLATE)/style.css Makefile config.yaml
 	tt-render --path=$(TEMPLATE) --data=config.yaml style.css > $@
 
-$(ALL_TARGETS): $(ALL_DIRS) $(TEMPLATE)/* config.yaml Makefile
+site/%/index.html: template/%.html config.yaml Makefile
 	tt-render --path=$(TEMPLATE) --data=config.yaml $(@:$(TARGET)/%/index.html=%.html) > $@
 
 template/%.html: content/%.st
