@@ -2,7 +2,7 @@ This page shows all the different incantations, inputs and outputs of the curren
 
 ^ C'Dent Version
 
-> `cdent --version`
+> `> cdent --version`
 
 .pre
   The C'Dent portable module programming language.
@@ -112,7 +112,7 @@ C'Dent can take any of the above inputs, and generate the following outputs:
 
 ^^ Perl
 
-> `cdent --compile --in=World.cd.py --to=pm`
+> `> cdent --compile --in=World.cd.py --to=pm`
 
 .pre
 # *** DO NOT EDIT ***  This is a C'Dent generated Perl module.
@@ -135,7 +135,7 @@ sub greet {
 
 ^^ Python
 
-> `cdent --compile --in=World.cd.py --to=py`
+> `> cdent --compile --in=World.cd.py --to=py`
 
 .pre
 # *** DO NOT EDIT ***  This is a C'Dent generated Python module.
@@ -152,7 +152,7 @@ class World():
 
 ^^ PHP
 
-> `cdent --compile --in=World.cd.py --to=php`
+> `> cdent --compile --in=World.cd.py --to=php`
 
 .pre
 // *** DO NOT EDIT ***  This is a C'Dent generated PHP module.
@@ -173,7 +173,7 @@ class World {
 
 ^^ Ruby
 
-> `cdent --compile --in=World.cd.py --to=rb`
+> `> cdent --compile --in=World.cd.py --to=rb`
 
 .pre
 # *** DO NOT EDIT ***  This is a C'Dent generated Ruby module.
@@ -192,7 +192,7 @@ end
 
 ^^ JavaScript
 
-> `cdent --compile --in=World.cd.py --to=js`
+> `> cdent --compile --in=World.cd.py --to=js`
 
 .pre
 // *** DO NOT EDIT ***  This is a C'Dent generated JavaScript module.
@@ -211,7 +211,7 @@ end
 
 ^^ Perl 6
 
-> `cdent --compile --in=World.cd.py --to=pm6`
+> `> cdent --compile --in=World.cd.py --to=pm6`
 
 .pre
 # *** DO NOT EDIT ***  This is a C'Dent generated Perl 6 module.
@@ -230,7 +230,7 @@ class World {
 
 ^^ Python 3000
 
-> `cdent --compile --in=World.cd.py --to=py3`
+> `> cdent --compile --in=World.cd.py --to=py3`
 
 .pre
 # *** DO NOT EDIT ***  This is a C'Dent generated Python 3 module.
@@ -247,7 +247,7 @@ class World():
 
 ^^ Java
 
-> `cdent --compile --in=World.cd.py --to=java`
+> `> cdent --compile --in=World.cd.py --to=java`
 
 .pre
 // *** DO NOT EDIT ***  This is a C'Dent generated Java module.
@@ -266,7 +266,7 @@ public class World {
 
 ^^ C'Dent
 
-> `cdent --compile --in=World.cd.py --to=cd.yaml`
+> `> cdent --compile --in=World.cd.py --to=cd.yaml`
 
 .pre
 %TAG ! tag:cdent.org,2010:
