@@ -10,15 +10,20 @@ C'Dent parses and analyzes the input into a well defined tree structure that is 
 
 From the C'Dent format, equivalent modules can be generated in the following (currently supported) languages:
 
-* Perl
-* Python
-* Ruby
-* PHP
-* JavaScript
-* Java
-* Python 3
-* Perl 6
+# Perl
+# Python
+# PHP
+# Ruby
+# JavaScript
+# Scala
+# Java
+# ActionScript
+# Python 3
+# Perl 6
+# Go
+# PIR
+# C'Dent
 
-See them all at [examples/hello-world]. We plan to add many other languages to that list.
+See them all at [/examples/hello-world]. We plan to add many other languages to that list.
 
 If you have ideas, or want to join the effort, please stop by #cdent on irc.frenode.net.

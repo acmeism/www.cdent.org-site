@@ -9,7 +9,7 @@ This page shows all the different incantations, inputs and outputs of the curren
 
   Copyright (c) 2010, Ingy dot Net
   
-  Version 0.4
+  Version 0.5
 .pre
 
 
@@ -37,7 +37,7 @@ class World():
 
 ----
 
-^^ `world.cd.js`
+^^ `World.cd.js`
 
 This is the module written in C'Dent JavaScript.
 
@@ -106,13 +106,13 @@ has:
 
 ^ Outputs
 
-C'Dent can take any of the above inputs, and generate the following outputs:
+C'Dent can take any of the above inputs, and generate the following outputs: Perl, Python, PHP, Ruby, JavaScript, Scala, Java, ActionScript, Perl 6, Python 3000, Go, PIR or C'Dent.
 
 ----
 
 ^^ Perl
 
-> `> cdent --compile --in=World.cd.py --to=pm`
+> `> cdent --compile --in=world.cd.py --to=pm`
 
 .pre
 # *** DO NOT EDIT ***  This is a C'Dent generated Perl module.
@@ -135,7 +135,7 @@ sub greet {
 
 ^^ Python
 
-> `> cdent --compile --in=World.cd.py --to=py`
+> `> cdent --compile --in=world.cd.py --to=py`
 
 .pre
 # *** DO NOT EDIT ***  This is a C'Dent generated Python module.
@@ -152,7 +152,7 @@ class World():
 
 ^^ PHP
 
-> `> cdent --compile --in=World.cd.py --to=php`
+> `> cdent --compile --in=world.cd.py --to=php`
 
 .pre
 // *** DO NOT EDIT ***  This is a C'Dent generated PHP module.
@@ -173,7 +173,7 @@ class World {
 
 ^^ Ruby
 
-> `> cdent --compile --in=World.cd.py --to=rb`
+> `> cdent --compile --in=world.cd.py --to=rb`
 
 .pre
 # *** DO NOT EDIT ***  This is a C'Dent generated Ruby module.
@@ -192,7 +192,7 @@ end
 
 ^^ JavaScript
 
-> `> cdent --compile --in=World.cd.py --to=js`
+> `> cdent --compile --in=world.cd.py --to=js`
 
 .pre
 // *** DO NOT EDIT ***  This is a C'Dent generated JavaScript module.
@@ -209,9 +209,68 @@ end
 
 ----
 
+^^ Scala
+
+> `> cdent --compile --in=world.cd.py --to=scala`
+
+.pre
+// *** DO NOT EDIT ***  This is a C'Dent generated Scala module.
+/**
+ * This is World class :)
+ */
+
+class World {
+    def greet() {
+        println("Hello, world")
+    }
+}
+.pre
+
+----
+
+^^ Java
+
+> `> cdent --compile --in=world.cd.py --to=java`
+
+.pre
+// *** DO NOT EDIT ***  This is a C'Dent generated Java module.
+/**
+ * This is World class :)
+ */
+
+public class World {
+    public void greet() {
+        System.out.println("Hello, world");
+    }
+}
+.pre
+
+----
+
+^^ ActionScript
+
+> `> cdent --compile --in=world.cd.py --to=as`
+
+.pre
+// *** DO NOT EDIT ***  This is a C'Dent generated ActionScript module.
+package {
+    /**
+     * This is World class :)
+     */
+
+    public class World {
+        public function greet():void {
+            trace("Hello, world" + "\n");
+        }
+    }
+}
+.pre
+
+----
+
 ^^ Perl 6
 
-> `> cdent --compile --in=World.cd.py --to=pm6`
+> `> cdent --compile --in=world.cd.py --to=pm6`
 
 .pre
 # *** DO NOT EDIT ***  This is a C'Dent generated Perl 6 module.
@@ -230,7 +289,7 @@ class World {
 
 ^^ Python 3000
 
-> `> cdent --compile --in=World.cd.py --to=py3`
+> `> cdent --compile --in=world.cd.py --to=py3`
 
 .pre
 # *** DO NOT EDIT ***  This is a C'Dent generated Python 3 module.
@@ -245,28 +304,48 @@ class World():
 
 ----
 
-^^ Java
+^^ Go
 
-> `> cdent --compile --in=World.cd.py --to=java`
+> `> cdent --compile --in=world.cd.py --to=go`
 
 .pre
-// *** DO NOT EDIT ***  This is a C'Dent generated Java module.
-/**
+// *** DO NOT EDIT ***  This is a C'Dent generated Go module.
+/*
  * This is World class :)
  */
 
-public class World {
-    public void greet() {
-        System.out.println("Hello, world");
-    }
+package World
+import fmt "fmt"
+
+func greet() {
+    fmt.Println("Hello, world")
 }
+.pre
+
+----
+
+^^ PIR
+
+> `> cdent --compile --in=world.cd.py --to=pir`
+
+.pre
+# *** DO NOT EDIT ***  This is a C'Dent generated PIR module.
+###
+# This is World class :)
+###
+
+.namespace ["World"]
+
+.method greet
+    say "Hello, world"
+.end
 .pre
 
 ----
 
 ^^ C'Dent
 
-> `> cdent --compile --in=World.cd.py --to=cd.yaml`
+> `> cdent --compile --in=world.cd.py --to=cd.yaml`
 
 .pre
 %TAG ! tag:cdent.org,2010:
