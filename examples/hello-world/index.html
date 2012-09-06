@@ -1,0 +1,333 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+
+<head>
+  <title>C'Dent - A Portable Module Programming Language</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <link rel="shortcut icon" type="image/x-icon" href="/images/favicon.ico">
+  <link rel="stylesheet" href="/project-site.css" type="text/css">
+  <link rel="stylesheet" href="/custom.css" type="text/css">
+  <script type="text/javascript" src="/js/jquery.js"></script>
+  <script type="text/javascript" src="/js/sidebar.js"></script>
+</head>
+
+<body>
+<div class="page">
+<div class="header">
+  <a href="/"><img class="logo" src="/images/logo.png" alt=""></a>
+</div>
+
+<div class="bottom">
+<div class="sidebar">
+  <ul>
+    <li><a href="/home/">Home</a></li>
+    <li><a href="/download/">Download</a>
+      <ul>
+        <li><a href="/download/distributions/">Distributions</a></li>
+        <li><a href="/download/source-repository/">Source Repository</a></li>
+        <li><a href="/download/installation/">Installation</a></li>
+      </ul>
+    </li>
+    <li><a href="/examples/">Examples</a>
+      <ul>
+        <li><a href="/examples/help/">Compiler Help</a></li>
+        <li><a href="/examples/hello-world/">Hello World</a></li>
+      </ul>
+    </li>
+    <li><a href="/news/">News</a></li>
+  </ul>
+</div>
+
+<div class="content">
+<img class="photo" src="/images/chris-dent.jpg" alt="">
+
+<p>This page shows all the different incantations, inputs and outputs of the current version of C'Dent compiling the hello-world example.</p>
+<h1>C'Dent Version</h1>
+<blockquote><p><tt>> cdent --version</tt></p>
+</blockquote><pre>  The C'Dent portable module programming language.
+
+  Copyright (c) 2010, Ingy dot Net
+  
+  Version 0.5
+</pre><h1>Inputs</h1>
+<p>C'Dent can currently parse the C'Dent subsets of Python, JavaScript and Perl 6.</p>
+<p>These examples deal with equivalent versions of a <em>World</em> module. The module has a <tt>World</tt> class, which has a <tt>greet</tt> method, which has a <tt>println()</tt> command statement.</p>
+<hr />
+<h2><tt>world.cd.py</tt></h2>
+<p>This is the module written in C'Dent Python.</p>
+<pre>"""\
+This is World class :)
+"""
+
+class World():
+    def greet(self):
+            print "Hello, world"
+</pre><hr />
+<h2><tt>World.cd.js</tt></h2>
+<p>This is the module written in C'Dent JavaScript.</p>
+<pre>/**
+ * This is World class :)
+ */
+
+(this.World = function() {}).prototype = {
+    greet: function() {
+        print("Hello, world");
+    }
+};
+</pre><hr />
+<h2><tt>World.cd.pm6</tt></h2>
+<p>This is the module written in C'Dent Perl 6.</p>
+<pre>###
+# This is World class :)
+###
+
+class World {
+    method greet {
+        say "Hello, world";
+    }
+}
+</pre><hr />
+<h2><tt>World.cd.yaml</tt></h2>
+<p>This is the module in pure C'Dent "abstract tree" form, serialized as YAML.</p>
+<pre>%TAG ! tag:cdent.org,2010:
+--- !AST
+has:
+- !Module
+  name: World
+  has:
+  - !Comment
+    type: doc
+    val: "This is World class :)\n"
+  - !Comment
+    type: blank
+    val: "\n"
+  - !Class
+    name: World
+    has:
+    - !Method
+      name: greet
+      has:
+      - !Println
+        args:
+        - !String
+          val: Hello, world
+</pre><hr />
+<h1>Outputs</h1>
+<p>C'Dent can take any of the above inputs, and generate the following outputs: Perl, Python, PHP, Ruby, JavaScript, Scala, Java, ActionScript, Perl 6, Python 3000, Go, PIR, NQP or C'Dent.</p>
+<hr />
+<h2>Perl</h2>
+<blockquote><p><tt>> cdent --compile --in=world.cd.py --to=pm</tt></p>
+</blockquote><pre># *** DO NOT EDIT ***  This is a C'Dent generated Perl module.
+###
+# This is World class :)
+###
+
+package World;
+use CDent::Class;
+
+sub greet {
+    my $self = shift;
+    print "Hello, world", "\n";
+}
+
+1;
+</pre><hr />
+<h2>Python</h2>
+<blockquote><p><tt>> cdent --compile --in=world.cd.py --to=py</tt></p>
+</blockquote><pre># *** DO NOT EDIT ***  This is a C'Dent generated Python module.
+"""\
+This is World class :)
+"""
+
+class World():
+    def greet(self):
+        print "Hello, world"        
+</pre><hr />
+<h2>PHP</h2>
+<blockquote><p><tt>> cdent --compile --in=world.cd.py --to=php</tt></p>
+</blockquote><pre>// *** DO NOT EDIT ***  This is a C'Dent generated PHP module.
+&lt;?php
+/**
+ * This is World class :)
+ */
+
+class World {
+    public function greet() {
+        print("Hello, world", "\n");
+    }
+}
+?>
+</pre><hr />
+<h2>Ruby</h2>
+<blockquote><p><tt>> cdent --compile --in=world.cd.py --to=rb</tt></p>
+</blockquote><pre># *** DO NOT EDIT ***  This is a C'Dent generated Ruby module.
+###
+# This is World class :)
+###
+
+class World
+    def greet
+        puts("Hello, world")
+    end
+end
+</pre><hr />
+<h2>JavaScript</h2>
+<blockquote><p><tt>> cdent --compile --in=world.cd.py --to=js</tt></p>
+</blockquote><pre>// *** DO NOT EDIT ***  This is a C'Dent generated JavaScript module.
+/*
+ * This is World class :)
+ */
+
+(this.World = function() {}).prototype = {
+    greet: function() {
+        print("Hello, world");
+    }
+}
+</pre><hr />
+<h2>Scala</h2>
+<blockquote><p><tt>> cdent --compile --in=world.cd.py --to=scala</tt></p>
+</blockquote><pre>// *** DO NOT EDIT ***  This is a C'Dent generated Scala module.
+/**
+ * This is World class :)
+ */
+
+class World {
+    def greet() {
+        println("Hello, world")
+    }
+}
+</pre><hr />
+<h2>Java</h2>
+<blockquote><p><tt>> cdent --compile --in=world.cd.py --to=java</tt></p>
+</blockquote><pre>// *** DO NOT EDIT ***  This is a C'Dent generated Java module.
+/**
+ * This is World class :)
+ */
+
+public class World {
+    public void greet() {
+        System.out.println("Hello, world");
+    }
+}
+</pre><hr />
+<h2>ActionScript</h2>
+<blockquote><p><tt>> cdent --compile --in=world.cd.py --to=as</tt></p>
+</blockquote><pre>// *** DO NOT EDIT ***  This is a C'Dent generated ActionScript module.
+package {
+    /**
+     * This is World class :)
+     */
+
+    public class World {
+        public function greet():void {
+            trace("Hello, world" + "\n");
+        }
+    }
+}
+</pre><hr />
+<h2>Perl 6</h2>
+<blockquote><p><tt>> cdent --compile --in=world.cd.py --to=pm6</tt></p>
+</blockquote><pre># *** DO NOT EDIT ***  This is a C'Dent generated Perl 6 module.
+###
+# This is World class :)
+###
+
+class World {
+    method greet {
+        say "Hello, world";
+    }
+}
+</pre><hr />
+<h2>Python 3000</h2>
+<blockquote><p><tt>> cdent --compile --in=world.cd.py --to=py3</tt></p>
+</blockquote><pre># *** DO NOT EDIT ***  This is a C'Dent generated Python 3 module.
+"""\
+This is World class :)
+"""
+
+class World():
+    def greet(self):
+        print("Hello, world")        
+</pre><hr />
+<h2>Go</h2>
+<blockquote><p><tt>> cdent --compile --in=world.cd.py --to=go</tt></p>
+</blockquote><pre>// *** DO NOT EDIT ***  This is a C'Dent generated Go module.
+/*
+ * This is World class :)
+ */
+
+package World
+import fmt "fmt"
+
+func greet() {
+    fmt.Println("Hello, world")
+}
+</pre><hr />
+<h2>PIR</h2>
+<blockquote><p><tt>> cdent --compile --in=world.cd.py --to=pir</tt></p>
+</blockquote><pre># *** DO NOT EDIT ***  This is a C'Dent generated PIR module.
+###
+# This is World class :)
+###
+
+.namespace ["World"]
+.sub greet :method
+    say "Hello, world"
+.end
+</pre><hr />
+<h2>NQP (Not Quite Perl)</h2>
+<blockquote><p><tt>> cdent --compile --in=world.cd.py --to=nqp</tt></p>
+</blockquote><pre># *** DO NOT EDIT ***  This is a C'Dent generated NQP (Not Quite Perl) module.
+###
+# This is World class :)
+###
+
+class World {
+    method greet() {
+        say("Hello, world");
+    }
+}
+</pre><hr />
+<h2>C'Dent</h2>
+<blockquote><p><tt>> cdent --compile --in=world.cd.py --to=cd.yaml</tt></p>
+</blockquote><pre>%TAG ! tag:cdent.org,2010:
+--- !AST
+has:
+- !Module
+  has:
+  - !Comment
+    line: 1
+    type: doc
+    val: 'This is World class :)
+
+      '
+  - !Comment
+    line: 4
+    type: blank
+    val: '
+
+      '
+  - !Class
+    has:
+    - !Method
+      has:
+      - !Println
+        args:
+        - !String
+          val: Hello, world
+        line: 7
+      line: 6
+      name: greet
+    line: 5
+    name: World
+  line: 1
+  name: Module
+</pre>
+
+</div>
+</div>
+</div>
+</body>
+
+</html>
+
