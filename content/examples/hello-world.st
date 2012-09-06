@@ -106,7 +106,7 @@ has:
 
 ^ Outputs
 
-C'Dent can take any of the above inputs, and generate the following outputs: Perl, Python, PHP, Ruby, JavaScript, Scala, Java, ActionScript, Perl 6, Python 3000, Go, PIR or C'Dent.
+C'Dent can take any of the above inputs, and generate the following outputs: Perl, Python, PHP, Ruby, JavaScript, Scala, Java, ActionScript, Perl 6, Python 3000, Go, PIR, NQP or C'Dent.
 
 ----
 
@@ -335,10 +335,28 @@ func greet() {
 ###
 
 .namespace ["World"]
-
-.method greet
+.sub greet :method
     say "Hello, world"
 .end
+.pre
+
+----
+
+^^ NQP (Not Quite Perl)
+
+> `> cdent --compile --in=world.cd.py --to=nqp`
+
+.pre
+# *** DO NOT EDIT ***  This is a C'Dent generated NQP (Not Quite Perl) module.
+###
+# This is World class :)
+###
+
+class World {
+    method greet() {
+        say("Hello, world");
+    }
+}
 .pre
 
 ----
